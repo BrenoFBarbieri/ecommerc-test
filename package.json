@@ -1,5 +1,12 @@
 {
   "name": "ecommerc",
+  "version": "1.0.0",
+  "author": {
+    "name": "Breno Barbieri",
+    "email": "breno_barbieri@hotmail.com",
+    "url": "https://github.com/BrenoFBarbieri"
+  },
+  "description": "Projeto desenvolvido em NextJs",
   "private": true,
   "scripts": {
     "dev": "next dev",
