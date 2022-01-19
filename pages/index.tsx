@@ -12,6 +12,7 @@ const Home: NextPage = () => {
         <title>Virgo - eCommerce</title>
       </Head>
       {/* <CoverPage /> */}
+      <h2 className={styles.title}>Virgo</h2>
       <Option title="Lista de Produtos" />
       <Option title="Carrinho" />
     </div>
