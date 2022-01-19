@@ -11,10 +11,15 @@ const Home: NextPage = () => {
       <Head>
         <title>Virgo - eCommerce</title>
       </Head>
+
+      <h1 className={styles.title}>Virgo</h1>
+
+      {/*** Presentation ***/}
       {/* <CoverPage /> */}
-      <h2 className={styles.title}>Virgo</h2>
-      <Option title="Lista de Produtos" />
-      <Option title="Carrinho" />
+
+      {/*** Options select ***/}
+      {/* <Option title="Lista de Produtos" />
+      <Option title="Carrinho" /> */}
     </div>
   )
 }
