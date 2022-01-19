@@ -1,0 +1,27 @@
+.container {
+    width: 200px;
+    height: 70px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 15px;
+
+    background-color: #001219;
+    color: #fdfffc;
+
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+
+    transition-property: background-color, color, box-shadow;
+    transition-duration: .45s;
+}
+.container:hover {
+    color: #001219;
+    border: 0.5px solid #001219;
+    background-color: #fdfffc;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}

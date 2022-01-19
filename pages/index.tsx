@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-// import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 import CoverPage from '../components/CoverPage'
+import Option from '../components/Option'
 
 const Home: NextPage = () => {
   return (
@@ -11,7 +11,9 @@ const Home: NextPage = () => {
       <Head>
         <title>Virgo - eCommerce</title>
       </Head>
-      <CoverPage />
+      {/* <CoverPage /> */}
+      <Option title="Lista de Produtos" />
+      <Option title="Carrinho" />
     </div>
   )
 }
