@@ -1,0 +1,40 @@
+.containerTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .containerTitle h1 {
+    color: #001219;
+    animation: blinker .6s linear;
+  }
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+  .subTitleAnimation {
+    margin: 0;
+  
+    font-style: italic;
+    font-family: monospace;
+    color: #949393;
+  
+    width: 32ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    
+    border-right: 3px solid;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+  }
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
