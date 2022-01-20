@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 
 import CoverPage from '../components/CoverPage'
 import Option from '../components/Option'
+import ListCard from '../components/ListCard'
 
 const Home: NextPage = () => {
   return (
@@ -20,6 +21,9 @@ const Home: NextPage = () => {
       {/*** Options select ***/}
       {/* <Option title="Lista de Produtos" />
       <Option title="Carrinho" /> */}
+
+      {/*** Card  ***/}
+      <ListCard />
     </div>
   )
 }

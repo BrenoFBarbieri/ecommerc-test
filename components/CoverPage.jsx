@@ -1,4 +1,4 @@
-import styles from './coverPage.module.css'
+import styles from '../styles/components/CoverPage.module.css'
 
 const CoverPage = () => {
     return (

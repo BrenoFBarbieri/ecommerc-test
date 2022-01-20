@@ -1,4 +1,4 @@
-import styles from './option.module.css'
+import styles from '../styles/components/Option.module.css'
 
 const Option = (props) => {
     return (
