@@ -11,6 +11,16 @@ import ListCard from '../components/ListCard'
 import { HandlerDelayApresentation } from '../services/generic'
 
 const Home: NextPage = () => {
+  const [showApresentation, setShowApresentation] = useState(true)
+
+  useEffect(() => {
+    async function handlerDelayApresentation() {
+      const bool: boolean = await HandlerDelayApresentation(showApresentation)
+      setShowApresentation(bool)
+    }
+    handlerDelayApresentation()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   return (
     <div className={styles.container}>
       <Head>
@@ -18,15 +28,19 @@ const Home: NextPage = () => {
       </Head>
 
       {/*** Presentation ***/}
-      <CoverPage />
-      
-      {/* <h1 className={styles.title}>Virgo</h1> */}
-      {/*** Options select ***/}
-      {/* <Option title="Lista de Produtos" /> */}
-      {/* <Option title="Carrinho" /> */}
+      {showApresentation ? 
+          <CoverPage />
+        :
+          <>
+            <h1 className={styles.title}>Virgo</h1>
+            {/*** Options select ***/}
+            <Option title="Lista de Produtos" />
+            <Option title="Carrinho" />
 
-      {/*** Card  ***/}
-      {/* <ListCard />  */}
+            {/*** Card  ***/}
+            {/* <ListCard />  */}
+          </>
+      }
     </div>
   )
 }

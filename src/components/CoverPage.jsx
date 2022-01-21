@@ -10,7 +10,6 @@ const CoverPage = () => {
         async function handlerDelayApresentation() {
             const bool = await HandlerDelayApresentation(delayMsg, 1500)
             setDelayMsg(bool)
-            console.log('Exec')
         }
         handlerDelayApresentation()
     // eslint-disable-next-line react-hooks/exhaustive-deps
