@@ -147,18 +147,22 @@ const ListCard = () => {
     return (
         <div className={styles.container}>
             <table>
+              <thead>
                 <tr>
                     <th>Produto</th>
                     <th>Preço</th>
                     <th>Quantidade</th>
                 </tr>
-                {/*** List ***/}
+              </thead>
+              {/*** List ***/}
+              <tbody>
                 <tr>
-                    <td>Sleek Wooden Soap</td>
-                    <td>430.00</td>
-                    <td>91260</td>
-                    <td id="btn-buy" onClick={e => handlerBuyBtn()}>Adicionar ao Carrinho</td>
+                  <td>Sleek Wooden Soap</td>
+                  <td>430.00</td>
+                  <td>91260</td>
+                  <td id="btn-buy" onClick={e => handlerBuyBtn()}>Adicionar ao Carrinho</td>
                 </tr>
+              </tbody>
             </table>
         </div>
     )
