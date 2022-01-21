@@ -16,8 +16,16 @@ const Home: NextPage = () => {
   const [showApresentation, setShowApresentation] = useState(true)
   const [showLoader, setShowLoader] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
+
   // States for options
   const [openListCard, setOpenListCard] = useState(false)
+
+  function originalState(): void {
+    console.log('exec')
+    setOpenListCard(false)
+    setShowLoader(false)
+    setShowOptions(true)
+  }
 
   function handlerOptionList(): void {
     setShowOptions(false)
@@ -45,7 +53,7 @@ const Home: NextPage = () => {
       </Head>
       
       {/***  Title ***/}
-      {!showApresentation && !showLoader && <h1 className={styles.title}>Virgo</h1>}
+      {!showApresentation && !showLoader && <h1 className={styles.title} onClick={_ => originalState()}>Virgo</h1>}
 
       {/*** Presentation ***/}
       {showApresentation && <CoverPage /> }
