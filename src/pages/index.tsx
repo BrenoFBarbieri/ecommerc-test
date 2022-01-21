@@ -26,8 +26,10 @@ const Home: NextPage = () => {
       setShowOptions(true)
     }
     handlerDelayApresentation()
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+  
   return (
     <div className={styles.container}>
       <Head>
