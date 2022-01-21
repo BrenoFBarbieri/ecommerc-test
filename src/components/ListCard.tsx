@@ -1,5 +1,5 @@
 import styles from '../styles/components/ListCard.module.css'
-// import {  } from 'react'
+import { useState } from 'react'
 
 interface ProductObj {
   id: string,
@@ -11,6 +11,7 @@ interface ProductObj {
 }
 
 const ListCard = () => {
+  const [addedItems, setAddedItems] = useState(new Array)
     const listObj = [
         {
         "id": "1",
@@ -157,19 +158,27 @@ const ListCard = () => {
             <td>{obj.name}</td>
             <td>{obj.price}</td>
             <td>{obj.stock}</td>
-            <td id={obj.id} onClick={e => handlerBuyBtn()}>Adicionar ao Carrinho</td>
+            <td id={obj.id} onClick={e => handlerBuyBtn(obj.id)}>Adicionar ao Carrinho</td>
           </tr>
         )
       })
     }
 
-    function handlerBuyBtn() {
-      const buyBtn = document.getElementById('btn-buy')
+    function handlerBuyBtn(id: string) {
+      const buyBtn = document.getElementById(`${id}`)
       if(buyBtn) {
         buyBtn.innerHTML = 'Adicionado'
+        if(addedItems.length > 0) {
+          const hasInArray = addedItems.indexOf(id)
+          if(hasInArray === -1) {
+            setAddedItems([...addedItems, id])
+          }
+        } else {
+          setAddedItems([id])          
+        }
       }
     }
-
+    
     return (
         <div className={styles.container}>
             <table>
@@ -182,7 +191,7 @@ const ListCard = () => {
               </thead>
               {/*** List ***/}
               <tbody>
-                {handlerProductListing()}
+                { handlerProductListing() }
               </tbody>
             </table>
         </div>
