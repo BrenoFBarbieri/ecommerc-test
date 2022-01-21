@@ -1,21 +1,14 @@
-.container {
-  width: 100vw;
-  height: 100vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background-color: #fdfffc;
-}
 .containerTitle {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   text-align: center;
 }
 .containerTitle h1 {
+  position: fixed;
+  top: auto;
   color: #001219;
   animation: blinker .6s linear;
 }
@@ -25,7 +18,7 @@
   }
 }
 .subTitleAnimation {
-  margin: 0;
+  margin-top: 80px;
 
   font-style: italic;
   font-family: monospace;
