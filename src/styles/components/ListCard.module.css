@@ -36,7 +36,6 @@
 }
 .container table tr td:nth-child(1) {
     text-align: left;
-
 }
 .container table tr td:nth-child(4) {
     cursor: pointer;

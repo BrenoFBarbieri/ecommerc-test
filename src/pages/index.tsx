@@ -5,6 +5,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 
 import CoverPage from '../components/CoverPage'
+import Loader from '../components/Loader'
 import Option from '../components/Option'
 import ListCard from '../components/ListCard'
 
@@ -12,11 +13,17 @@ import { HandlerDelayApresentation } from '../services/generic'
 
 const Home: NextPage = () => {
   const [showApresentation, setShowApresentation] = useState(true)
+  const [showLoader, setShowLoader] = useState(false)
+  const [showOptions, setShowOptions] = useState(false)
 
   useEffect(() => {
     async function handlerDelayApresentation() {
-      const bool: boolean = await HandlerDelayApresentation(showApresentation)
-      setShowApresentation(bool)
+      const apresentation: boolean = await HandlerDelayApresentation(showApresentation)
+      setShowApresentation(apresentation)
+      setShowLoader(true)
+      const loader: boolean = await HandlerDelayApresentation(showApresentation, 3800)
+      setShowLoader(loader)
+      setShowOptions(true)
     }
     handlerDelayApresentation()
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -26,21 +33,27 @@ const Home: NextPage = () => {
       <Head>
         <title>Virgo - eCommerce</title>
       </Head>
+      
+      {/***  Title ***/}
+      {!showApresentation && !showLoader && <h1 className={styles.title}>Virgo</h1>}
 
       {/*** Presentation ***/}
-      {showApresentation ? 
-          <CoverPage />
-        :
-          <>
-            <h1 className={styles.title}>Virgo</h1>
-            {/*** Options select ***/}
-            <Option title="Lista de Produtos" />
-            <Option title="Carrinho" />
+      {showApresentation && <CoverPage /> }
 
-            {/*** Card  ***/}
-            {/* <ListCard />  */}
-          </>
+      {/***  Loader ***/}
+      {showLoader && <Loader />}
+
+      {/*** Options ***/}
+      {showOptions &&
+        <>
+          {/*** Options select ***/}
+          <Option title="Lista de Produtos" />
+          <Option title="Carrinho" />
+        </>
       }
+      {/*** Card  ***/}
+      {/* <ListCard />  */}
+      
     </div>
   )
 }
