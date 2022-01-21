@@ -1,4 +1,14 @@
 import styles from '../styles/components/ListCard.module.css'
+// import {  } from 'react'
+
+interface ProductObj {
+  id: string,
+  createdAt: string,
+  name: string,
+  price: string,
+  image?: string,
+  stock: number
+}
 
 const ListCard = () => {
     const listObj = [
@@ -140,8 +150,24 @@ const ListCard = () => {
       }
     ]
 
-    const handlerBuyBtn = () => {
-        document.getElementById('btn-buy').innerHTML = 'Adicionado'
+    function handlerProductListing() {
+      return listObj.map((obj: ProductObj) => {
+        return (
+          <tr key={obj.id}>
+            <td>{obj.name}</td>
+            <td>{obj.price}</td>
+            <td>{obj.stock}</td>
+            <td id={obj.id} onClick={e => handlerBuyBtn()}>Adicionar ao Carrinho</td>
+          </tr>
+        )
+      })
+    }
+
+    function handlerBuyBtn() {
+      const buyBtn = document.getElementById('btn-buy')
+      if(buyBtn) {
+        buyBtn.innerHTML = 'Adicionado'
+      }
     }
 
     return (
@@ -156,12 +182,7 @@ const ListCard = () => {
               </thead>
               {/*** List ***/}
               <tbody>
-                <tr>
-                  <td>Sleek Wooden Soap</td>
-                  <td>430.00</td>
-                  <td>91260</td>
-                  <td id="btn-buy" onClick={e => handlerBuyBtn()}>Adicionar ao Carrinho</td>
-                </tr>
+                {handlerProductListing()}
               </tbody>
             </table>
         </div>
