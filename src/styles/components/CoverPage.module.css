@@ -19,16 +19,13 @@
 }
 .subTitleAnimation {
   margin-top: 80px;
-
   font-style: italic;
   font-family: monospace;
   color: #949393;
-
   width: 32ch;
   animation: typing 2s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
-  
   border-right: 3px solid;
 }
 @keyframes typing {

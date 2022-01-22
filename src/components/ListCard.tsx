@@ -1,6 +1,16 @@
 import styles from '../styles/components/ListCard.module.css'
+import { useState } from 'react'
 
-const ListCard = () => {
+interface ProductObj {
+  id: string,
+  createdAt: string,
+  name: string,
+  price: string,
+  image?: string,
+  stock: number
+}
+
+const ListCard = (props: any) => {
     const listObj = [
         {
         "id": "1",
@@ -140,25 +150,48 @@ const ListCard = () => {
       }
     ]
 
-    const handlerBuyBtn = () => {
-        document.getElementById('btn-buy').innerHTML = 'Adicionado'
+    function handlerProductListing() {
+      return listObj.map((obj: ProductObj) => {
+        return (
+          <tr key={obj.id}>
+            <td>{obj.name}</td>
+            <td>{obj.price}</td>
+            <td>{obj.stock}</td>
+            <td id={obj.id} onClick={e => handlerBuyBtn(obj.id)}>Adicionar ao Carrinho</td>
+          </tr>
+        )
+      })
     }
 
+    function handlerBuyBtn(id: string) {
+      const buyBtn = document.getElementById(`${id}`)
+      if(buyBtn) {
+        buyBtn.innerHTML = 'Adicionado'
+        if(props.addedItems[0].length > 0) {
+          const hasInArray = props.addedItems[0].indexOf(id)
+          if(hasInArray === -1) {
+            props.addedItems[1]([...props.addedItems[0], id])
+          }
+        } else {
+          props.addedItems[1]([id])          
+        }
+      }
+    }
+    
     return (
         <div className={styles.container}>
             <table>
+              <thead>
                 <tr>
                     <th>Produto</th>
                     <th>Preço</th>
                     <th>Quantidade</th>
                 </tr>
-                {/*** List ***/}
-                <tr>
-                    <td>Sleek Wooden Soap</td>
-                    <td>430.00</td>
-                    <td>91260</td>
-                    <td id="btn-buy" onClick={e => handlerBuyBtn()}>Adicionar ao Carrinho</td>
-                </tr>
+              </thead>
+              {/*** List ***/}
+              <tbody>
+                { handlerProductListing() }
+              </tbody>
             </table>
         </div>
     )
