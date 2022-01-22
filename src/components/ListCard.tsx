@@ -10,8 +10,7 @@ interface ProductObj {
   stock: number
 }
 
-const ListCard = () => {
-  const [addedItems, setAddedItems] = useState(new Array)
+const ListCard = (props: any) => {
     const listObj = [
         {
         "id": "1",
@@ -168,13 +167,13 @@ const ListCard = () => {
       const buyBtn = document.getElementById(`${id}`)
       if(buyBtn) {
         buyBtn.innerHTML = 'Adicionado'
-        if(addedItems.length > 0) {
-          const hasInArray = addedItems.indexOf(id)
+        if(props.addedItems[0].length > 0) {
+          const hasInArray = props.addedItems[0].indexOf(id)
           if(hasInArray === -1) {
-            setAddedItems([...addedItems, id])
+            props.addedItems[1]([...props.addedItems[0], id])
           }
         } else {
-          setAddedItems([id])          
+          props.addedItems[1]([id])          
         }
       }
     }

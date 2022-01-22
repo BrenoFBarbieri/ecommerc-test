@@ -3,6 +3,7 @@
   height: 100vh;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #fdfffc;
@@ -20,4 +21,13 @@
 }
 .title:hover {
   color: #d2dadf;
+}
+.listQtd {
+  width: 93%;
+  margin-bottom: 5px;
+  text-align: right;
+}
+.containerOptions { 
+  display: flex;
+  flex-direction: row; 
 }

@@ -20,6 +20,9 @@ const Home: NextPage = () => {
   // States for options
   const [openListCard, setOpenListCard] = useState(false)
 
+  // States for product list
+  const [addedItems, setAddedItems] = useState(new Array)
+
   function originalState(): void {
     console.log('exec')
     setOpenListCard(false)
@@ -63,17 +66,20 @@ const Home: NextPage = () => {
 
       {/*** Options ***/}
       {showOptions &&
-        <>
+        <div className={styles.containerOptions}>
           {/*** Options select ***/}
           <Option title="Lista de Produtos" Func={handlerOptionList} />
           <Option title="Carrinho" />
-        </>
+        </div>  
       }
 
       {/*** Cards  ***/}
-      {openListCard && <ListCard />}
-       
-      
+      {openListCard && 
+        <>
+            <span className={styles.listQtd}>Carrinho: {addedItems.length}</span>
+            <ListCard addedItems={[addedItems, setAddedItems]} />
+        </>
+      }
     </div>
   )
 }
